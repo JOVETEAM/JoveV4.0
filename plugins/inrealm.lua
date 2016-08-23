@@ -1,3 +1,15 @@
+--[[
+|------------------------------------------------- |--------- ______-----------------_______---|
+|   ______   __   ______    _____     _____    __  |  _____  |  ____|  __     __    /  _____/  |
+|  |__  __| |  | |__  __|  /     \   |     \  |  | | |__   | | |____  |  |   |  |  /  /____    |
+|    |  |   |  |   |  |   /  /_\  \  |  |\  \ |  | |   /  /  |  ____| |  |   |  |  \____   /   |
+|    |  |   |  |   |  |  /  _____  \ |  | \  \|  | |  /  /_  | |____  |  |___|  |   ___/  /    |
+|    |__|   |__|   |__| /__/     \__\|__|  \_____| | |_____| |______|  \_______/  /______/     |
+|--------------------------------------------------|-------------------------------------------|
+| This Project Powered by : Pouya Poorrahman CopyRight 2016 Jove Version 3.1 Anti Spam Cli Bot |
+|                             The Other Code Writer: Erfan Kiya                                |
+|----------------------------------------------------------------------------------------------|
+]]
 -- data saved to moderation.json
 -- check moderation plugin
 do
@@ -499,6 +511,7 @@ local function admin_promote(msg, admin_id)
 	return admin_id..' has been promoted as admin.'
 end
 
+
 local function admin_demote(msg, admin_id)
     if not is_sudo(msg) then
         return "Access denied!"
@@ -643,6 +656,27 @@ local function username_id(cb_extra, success, result)
    end
    send_large_msg(receiver, text)
 end
+
+local function username_id2(cb_extra, success, result)
+   local mod_cmd = cb_extra.mod_cmd
+   local receiver = cb_extra.receiver
+   local member = cb_extra.member
+   local text = 'No user @'..member..' in this group.'
+   for k,v in pairs(result) do
+      vusername = v.username
+      if vusername == member then
+        member_username = member
+        member_id = v.peer_id
+        if mod_cmd == 'addadmin' then
+            return admin_user_promote(receiver, member_username, member_id)
+        elseif mod_cmd == 'removeadmin' then
+            return admin_user_demote(receiver, member_username, member_id)
+        end
+      end
+   end
+   send_large_msg(receiver, text)
+end
+
 
 local function res_user_support(cb_extra, success, result)
    local receiver = cb_extra.receiver
@@ -947,12 +981,15 @@ function run(msg, matches)
 			end
 			if string.match(matches[2], '^%d+$') then
 				local admin_id = matches[2]
-				print("user "..admin_id.." has been promoted as admin")
 				return admin_promote(msg, admin_id)
 			else
-			  local member = string.gsub(matches[2], "@", "")
+			    local member = string.gsub(matches[2], "@", "")
 				local mod_cmd = "addadmin"
+				if msg.to.type == 'channel' then
+				channel_get_users(receiver, username_id2, {mod_cmd= mod_cmd, receiver=receiver, member=member})
+				else
 				chat_info(receiver, username_id, {mod_cmd= mod_cmd, receiver=receiver, member=member})
+				end
 			end
 		end
 		if matches[1] == 'removeadmin' then
@@ -966,7 +1003,11 @@ function run(msg, matches)
 			else
 			local member = string.gsub(matches[2], "@", "")
 				local mod_cmd = "removeadmin"
+				if msg.to.type == 'channel' then
+				channel_get_users(receiver, username_id2, {mod_cmd= mod_cmd, receiver=receiver, member=member})
+				else
 				chat_info(receiver, username_id, {mod_cmd= mod_cmd, receiver=receiver, member=member})
+				end
 			end
 		end
 		if matches[1] == 'support' and matches[2] then
@@ -1045,7 +1086,7 @@ end
 
 return {
   patterns = {
-    "^[#!/](creategroup) (.*)$",
+  	    "^[#!/](creategroup) (.*)$",
 	"^[#!/](createsuper) (.*)$",
     "^[#!/](createrealm) (.*)$",
     "^[#!/](setabout) (%d+) (.*)$",
@@ -1073,8 +1114,38 @@ return {
     "^[#!/](list) (.*)$",
     "^[#!/](log)$",
     "^[#!/](help)$",
+    "^(creategroup) (.*)$",
+	"^(createsuper) (.*)$",
+    "^(createrealm) (.*)$",
+    "^(setabout) (%d+) (.*)$",
+    "^(setrules) (%d+) (.*)$",
+    "^(setname) (.*)$",
+    "^(setgpname) (%d+) (.*)$",
+    "^(setname) (%d+) (.*)$",
+    "^(lock) (%d+) (.*)$",
+    "^(unlock) (%d+) (.*)$",
+	"^(mute) (%d+)$",
+	"^(unmute) (%d+)$",
+    "^(settings) (.*) (%d+)$",
+    "^(wholist)$",
+    "^(who)$",
+	"^([Ww]hois) (.*)",
+    "^(type)$",
+    "^(kill) (chat) (%d+)$",
+    "^(kill) (realm) (%d+)$",
+	"^(rem) (%d+)$",
+    "^(addadmin) (.*)$", -- sudoers only
+    "^(removeadmin) (.*)$", -- sudoers only
+	"^(support)$",
+	"^(support) (.*)$",
+    "^(-support) (.*)$",
+    "^(list) (.*)$",
+    "^(log)$",
+    "^(help)$",
     "^!!tgservice (.+)$",
   },
   run = run
 }
 end
+
+-- BY POUYA POORRAHMAN
