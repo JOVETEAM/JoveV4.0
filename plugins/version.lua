@@ -25,7 +25,7 @@ function run(msg, matches)
 🔰مديريت و توسعه دهنده: @vWv_ERPO_vWv🔰
 🔰کانال: @JoveCH🔰
 🔰هلپر: @JoveTGBot🔰
-🔰سایت: JoveTG.Ir
+🔰سایت: JoveTG.Ir🔰
 🔰سودوها🔰:
 @vMv_ERPO_vMv & @vXv_ERPO_vXv & @Omid0263 & @vQv_ERPO_vQv
 🇮🇷🇮🇷🇮🇷🇮🇷🇮🇷🇮🇷🇮🇷🇮
@@ -48,6 +48,7 @@ return {
     "^ver$",
         "^Ver$",
       "^Version$",
+      "^Jove$",
     "^جو$"
   }, 
   run = run 
