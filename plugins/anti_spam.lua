@@ -1,9 +1,21 @@
+--[[
+|------------------------------------------------- |--------- ______-----------------_______---|
+|   ______   __   ______    _____     _____    __  |  _____  |  ____|  __     __    /  _____/  |
+|  |__  __| |  | |__  __|  /     \   |     \  |  | | |__   | | |____  |  |   |  |  /  /____    |
+|    |  |   |  |   |  |   /  /_\  \  |  |\  \ |  | |   /  /  |  ____| |  |   |  |  \____   /   |
+|    |  |   |  |   |  |  /  _____  \ |  | \  \|  | |  /  /_  | |____  |  |___|  |   ___/  /    |
+|    |__|   |__|   |__| /__/     \__\|__|  \_____| | |_____| |______|  \_______/  /______/     |
+|--------------------------------------------------|-------------------------------------------|
+| This Project Powered by : Pouya Poorrahman CopyRight 2016 Jove Version 3.1 Anti Spam Cli Bot |
+|                             The Other Code Writer: Erfan Kiya                                |
+|----------------------------------------------------------------------------------------------|
+]]
 --An empty table for solving multiple kicking problem(thanks to @topkecleon )
 kicktable = {}
 
 do
 
-local TIME_CHECK = 2 -- seconds
+local TIME_CHECK = 3 -- seconds
 -- Save stats, ban user
 local function pre_process(msg)
   -- Ignore service msg
@@ -92,8 +104,8 @@ local function pre_process(msg)
 		print(msgs)
 		if msgs >= max_msg then
 			print("Pass2")
-			send_large_msg("user#id"..msg.from.id, "User ["..msg.from.id.."] blocked for spam.")
-			savelog(msg.from.id.." PM", "User ["..msg.from.id.."] blocked for spam.")
+			send_large_msg("user#id"..msg.from.id, "💠کاربر ["..msg.from.id.."] بخاطر اسپم بلاک شد💠")
+			savelog(msg.from.id.." PM", "💠کاربر ["..msg.from.id.."] بخاطر اسپم بلاک شد💠")
 			block_user("user#id"..msg.from.id,ok_cb,false)--Block user if spammed in private
 		end
       end
@@ -108,10 +120,10 @@ local function pre_process(msg)
 	  if msg.to.type == 'chat' or msg.to.type == 'channel' then
 		if username then
 			savelog(msg.to.id, name_log.." @"..username.." ["..msg.from.id.."] kicked for #spam")
-			send_large_msg(receiver , "Flooding is not allowed here\n@"..username.."["..msg.from.id.."]\nStatus: User kicked")
+			send_large_msg(receiver , "💠اسپم اینجا مجازنیست💠\n@"..username.."["..msg.from.id.."]\n💠وضعیت:کاربرحذف شد💠")
 		else
 			savelog(msg.to.id, name_log.." ["..msg.from.id.."] kicked for #spam")
-			send_large_msg(receiver , "Flooding is not allowed here\nName:"..name_log.."["..msg.from.id.."]\nStatus: User kicked")
+			send_large_msg(receiver , "💠اسپم اینجا مجازنیست💠\n💠اسم💠:"..name_log.."["..msg.from.id.."]\n💠وضعیت:کاربرحذف شد💠")
 		end
 	  end
       -- incr it on redis
@@ -135,13 +147,13 @@ local function pre_process(msg)
           local print_name = user_print_name(msg.from):gsub("‮", "")
 		  local name = print_name:gsub("_", "")
           --Send this to that chat
-          send_large_msg("chat#id"..msg.to.id, "User [ "..name.." ]"..msg.from.id.." globally banned (spamming)")
-		  send_large_msg("channel#id"..msg.to.id, "User [ "..name.." ]"..msg.from.id.." globally banned (spamming)")
+          send_large_msg("chat#id"..msg.to.id, "💠کاربر [ "..name.." ]"..msg.from.id.." گولبال بن شد (spamming)💠")
+		  send_large_msg("channel#id"..msg.to.id, "💠کاربر [ "..name.." ]"..msg.from.id.." گولبال بن شد (spamming)💠")
           local GBan_log = 'GBan_log'
 		  local GBan_log =  data[tostring(GBan_log)]
 		  for k,v in pairs(GBan_log) do
 			log_SuperGroup = v
-			gban_text = "User [ "..name.." ] ( @"..username.." )"..msg.from.id.." Globally banned from ( "..msg.to.print_name.." ) [ "..msg.to.id.." ] (spamming)"
+			gban_text = "💠کاربر [ "..name.." ] ( @"..username.." )"..msg.from.id.." ازگروه ( "..msg.to.print_name.." ) [ "..msg.to.id.." ] گولبال بن شد💠(spamming)"
 			--send it to log group/channel
 			send_large_msg(log_SuperGroup, gban_text)
 		  end
