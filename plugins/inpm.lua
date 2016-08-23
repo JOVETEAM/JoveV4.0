@@ -1,3 +1,15 @@
+--[[
+|------------------------------------------------- |--------- ______-----------------_______---|
+|   ______   __   ______    _____     _____    __  |  _____  |  ____|  __     __    /  _____/  |
+|  |__  __| |  | |__  __|  /     \   |     \  |  | | |__   | | |____  |  |   |  |  /  /____    |
+|    |  |   |  |   |  |   /  /_\  \  |  |\  \ |  | |   /  /  |  ____| |  |   |  |  \____   /   |
+|    |  |   |  |   |  |  /  _____  \ |  | \  \|  | |  /  /_  | |____  |  |___|  |   ___/  /    |
+|    |__|   |__|   |__| /__/     \__\|__|  \_____| | |_____| |______|  \_______/  /______/     |
+|--------------------------------------------------|-------------------------------------------|
+| This Project Powered by : Pouya Poorrahman CopyRight 2016 Jove Version 3.1 Anti Spam Cli Bot |
+|                             The Other Code Writer: Erfan Kiya                                |
+|----------------------------------------------------------------------------------------------|
+]]
 ﻿local function pre_process(msg)
 local to = msg.to.type
 local service = msg.service
@@ -22,7 +34,7 @@ local service = msg.service
 		else
 			from_username = "@[none]"
 		end
-		text = "User From Info:\n\nID: "..from_id.."\nFirst: "..from_first_name.."\nLast: "..from_last_name.."\nUsername: "..from_username
+		text = "🔨User From Info:\n\n🔅ID: "..from_id.."\n💠First: "..from_first_name.."\n💠Last: "..from_last_name.."\n🔹Username: "..from_username
 		send_large_msg(user, text)
 	end
 	return msg
@@ -208,7 +220,7 @@ if to == 'user' or service or is_admin1(msg) and to == "chat" or to == "channel"
 
 	if matches[1] == 'help' and msg.to.type == 'user' or matches[1] == 'pmhelp' and is_admin1(msg) and msg.to.type ~= 'user' then
       	savelog(msg.to.id, name_log.." ["..msg.from.id.."] used pm help")
-		text = "Welcome to TeleSeed!\n\nTo get a list of TeleSeed groups use /chats or /chatlist for a document list of chats.\n\nTo get a new TeleSeed group, contact a support group:\n\nFor English support, use: /join English support\n\nFor Persian support, use: /join Persian support\n\nFor more information, check out our channels:\n\n@TeleseedCH [English]\n@Iranseed [Persian]\n\nThanks for using @TeleSeed!"
+		text = "🔹Welcome to Jove!🔹\n\n🔹To get a list of Jove groups use /chats or /chatlist for a document list of chats🔹\n\n🔹To get a new Jove group, contact a support group:🔹\n\nFor English support, use: /join English support\n\nFor Persian support, use: /join Persian support\n\nFor more information, check out our channels:\n\n@JoveCH [Persian-English]\n\nThanks for using @JoveTG!"
      	return text
     end
 
@@ -251,6 +263,14 @@ return {
     "^[#!/](join) (%d+)$",
 	"^[#!/](join) (.*) (support)$",
     "^[#!/](kickme) (.*)$",
+    	"^(help)$",
+	"^(pmhelp)$",
+	"^(superhelp)$",
+    "^(chats)$",
+    "^(chatlist)$",
+    "^(join) (%d+)$",
+	"^(join) (.*) (support)$",
+    "^(kickme) (.*)$",
     "^!!tgservice (chat_add_user)$",
     },
     run = run,
