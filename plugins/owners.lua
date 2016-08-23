@@ -1,3 +1,15 @@
+--[[
+|------------------------------------------------- |--------- ______-----------------_______---|
+|   ______   __   ______    _____     _____    __  |  _____  |  ____|  __     __    /  _____/  |
+|  |__  __| |  | |__  __|  /     \   |     \  |  | | |__   | | |____  |  |   |  |  /  /____    |
+|    |  |   |  |   |  |   /  /_\  \  |  |\  \ |  | |   /  /  |  ____| |  |   |  |  \____   /   |
+|    |  |   |  |   |  |  /  _____  \ |  | \  \|  | |  /  /_  | |____  |  |___|  |   ___/  /    |
+|    |__|   |__|   |__| /__/     \__\|__|  \_____| | |_____| |______|  \_______/  /______/     |
+|--------------------------------------------------|-------------------------------------------|
+| This Project Powered by : Pouya Poorrahman CopyRight 2016 Jove Version 3.1 Anti Spam Cli Bot |
+|                             The Other Code Writer: Erfan Kiya                                |
+|----------------------------------------------------------------------------------------------|
+]]
 local function lock_group_namemod(msg, data, target)
   local group_name_set = data[tostring(target)]['settings']['set_name']
   local group_name_lock = data[tostring(target)]['settings']['lock_name']
@@ -619,7 +631,14 @@ return {
     "^[#!/](changerules) (%d+) (.*)$",
     "^[#!/](changename) (%d+) (.*)$",
     "^[#!/](viewsettings) (%d+)$",
-	"^[#!/](loggroup) (%d+)$"
+	"^[#!/](loggroup) (%d+)$",
+	    "^owners (%d+) ([^%s]+) (.*)$",
+    "^owners (%d+) ([^%s]+)$",
+    "^(changeabout) (%d+) (.*)$",
+    "^(changerules) (%d+) (.*)$",
+    "^(changename) (%d+) (.*)$",
+    "^(viewsettings) (%d+)$",
+	"^(loggroup) (%d+)$"
   },
   run = run
 }
