@@ -130,8 +130,8 @@ local function banall_by_reply(extra, success, result)
 		return
 	end
 		banall_user(result.from.peer_id)
-		send_large_msg(chat, "💠User "..result.from.peer_id.." Golobaly Banned In Jove💠")
-		send_large_msg(channel, "💠User "..result.from.peer_id.." Golobaly Banned In Jove💠")
+		send_large_msg(chat, "💠کاربر "..result.from.peer_id.." در ژوپیتر گولبال بن شد💠")
+		send_large_msg(channel, "💠کاربر "..result.from.peer_id.." در ژوپیتر گولبال بن شد💠")
 	else
 		return
 	end
@@ -148,8 +148,8 @@ local function unbanall_by_reply(extra, success, result)
 		return
 	end
 		unbanall_user(result.from.peer_id)
-		send_large_msg(chat, "💠User "..result.from.peer_id.." Golobaly un-Banned In Jove💠")
-		send_large_msg(channel, "💠User "..result.from.peer_id.." Golobaly un-Banned In Jove💠")
+		send_large_msg(chat, "💠کاربر "..result.from.peer_id.." در ژوپیتر ازلیست گولبال بن درامد💠")
+		send_large_msg(channel, "💠کاربر "..result.from.peer_id.." در ژوپیتر ازلیست گولبال بن در امد💠")
 	else
 		return
 	end
@@ -165,8 +165,8 @@ local function unban_by_reply(extra, success, result)
 	if is_admin2(result.from.peer_id) then -- Ignore admins
 		return
 	end
-		send_large_msg(chat, "💠User "..result.from.peer_id.." un-Banned💠")
-		send_large_msg(channel, "💠User "..result.from.peer_id.." un-Banned💠")
+		send_large_msg(chat, "💠کاربر "..result.from.peer_id.." انبن شد💠")
+		send_large_msg(channel, "💠کاربر "..result.from.peer_id.." انبن شد💠")
 		local hash =  'banned:'..result.to.peer_id
 		redis:srem(hash, result.from.peer_id)
 	else
@@ -183,7 +183,7 @@ local function kick_ban_res(extra, success, result)
 		receiver = 'channel#id'..chat_id
 	  end
 	  if success == 0 then
-		return send_large_msg(receiver, "💠Cannot find user by that username!💠")
+		return send_large_msg(receiver, "💠هیچ کاربری بااین نام کاربری وجود دارد!💠")
 	  end
       local member_id = result.peer_id
       local user_id = member_id
@@ -192,31 +192,31 @@ local function kick_ban_res(extra, success, result)
       local get_cmd = extra.get_cmd
        if get_cmd == "kick" then
          if member_id == from_id then
-            send_large_msg(receiver, "💠You can't kick yourself💠")
+            send_large_msg(receiver, "💠شما نمیتوانید خودتان را حذف کنید💠")
 			return
          end
          if is_momod2(member_id, chat_id) and not is_admin2(sender) then
-            send_large_msg(receiver, "💠You can't kick mods/owner/admins💠")
+            send_large_msg(receiver, "💠شما نمیتوانید مقامات بالاتر را حذف کنید💠")
 			return
          end
 		 kick_user(member_id, chat_id)
       elseif get_cmd == 'ban' then
         if is_momod2(member_id, chat_id) and not is_admin2(sender) then
-			send_large_msg(receiver, "💠You can't ban mods/owner/admins💠")
+			send_large_msg(receiver, "💠شما نمیتوانید مقامات بالاتر را حذف کنید💠")
 			return
         end
-        send_large_msg(receiver, '💠User @'..member..' ['..member_id..'] banned💠')
+        send_large_msg(receiver, '💠کاربر @'..member..' ['..member_id..'] بن شد💠')
 		ban_user(member_id, chat_id)
       elseif get_cmd == 'unban' then
-        send_large_msg(receiver, '💠User @'..member..' ['..member_id..'] unbanned💠')
+        send_large_msg(receiver, '💠کاربر @'..member..' ['..member_id..'] انبن شد💠')
         local hash =  'banned:'..chat_id
         redis:srem(hash, member_id)
-        return 'User '..user_id..' unbanned'
+        return '💠کاربر '..user_id..' انبن شد💠'
       elseif get_cmd == 'banall' then
-        send_large_msg(receiver, '💠User @'..member..' ['..member_id..'] globally banned in jove💠')
+        send_large_msg(receiver, '💠کاربر @'..member..' ['..member_id..'] درژوپیتر گولبال بن شد💠')
 		banall_user(member_id)
       elseif get_cmd == 'unbanall' then
-        send_large_msg(receiver, '💠User @'..member..' ['..member_id..'] globally unbanned inf jove💠')
+        send_large_msg(receiver, '💠کاربر @'..member..' ['..member_id..'] در ژوپتیر انبن ال شد💠')
 	    unbanall_user(member_id)
     end
 end
@@ -275,10 +275,10 @@ end
          	return
         end
         if not is_admin1(msg) and is_momod2(matches[2], msg.to.id) then
-          	return "you can't ban mods/owner/admins"
+          	return "💠شما نمیتوانید مقامات بالاتر را حذف کنید💠"
         end
         if tonumber(matches[2]) == tonumber(msg.from.id) then
-          	return "You can't ban your self !"
+          	return "💠شما نمیتوانید خودتان را حذف کنید💠"
         end
         local print_name = user_print_name(msg.from):gsub("‮", "")
 	    local name = print_name:gsub("_", "")
@@ -404,7 +404,7 @@ if matches[1]:lower() == 'انبن' then-- /ban
           	return "💠شما نمیتوانید مقامات بالاتر راحذف کنید!💠"
         end
         if tonumber(matches[2]) == tonumber(msg.from.id) then
-          	return "💠You can't ban your self !💠"
+          	return "💠شما نمیتوانید خودتان راحذف کنید!💠"
         end
         local print_name = user_print_name(msg.from):gsub("‮", "")
 	    local name = print_name:gsub("_", "")
