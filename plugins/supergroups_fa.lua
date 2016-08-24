@@ -790,7 +790,7 @@ end
 		end
 	end
   local settings = data[tostring(target)]['settings']
-  local text = "💠تنظیمات سوپر گروه💠:\n➖➖➖➖➖➖➖➖\n🔸$ربات Name >> Jove 3.1 \n🔹$Lock Links >> "..settings.lock_link.."\n🔸$Lock Webpage >> "..settings.lock_webpage.."\n🔹$Lock Tag >> "..settings.lock_tag.."\n🔸$Lock Emoji >> "..settings.lock_emoji.."\n🔹$Lock English >> "..settings.lock_eng.."\n🔸$Lock Badword >> "..settings.lock_badw.."\n🔹$Lock Flood >> "..settings.flood.."\n🔸$Flood sensitivity >> "..NUM_MSG_MAX.."\n🔹$Lock Spam >> "..settings.lock_spam.."\n🔸$Lock Contacts >> "..settings.lock_contacts.."\n🔹$Lock Arabic/Persian >> "..settings.lock_arabic.."\n🔸$Lock Member >> "..settings.lock_member.."\n🔹$Lock RTL >> "..settings.lock_rtl.."\n🔸$Lock Forward >> "..settings.lock_fwd.."\n🔹$Lock TGservice >> "..settings.lock_tgservice.."\n🔸$Lock Sticker >> "..settings.lock_sticker.."\n🔹$Public >> "..settings.public.."\n🔸$Strict Settings >> "..settings.strict
+  local text = "💠تنظیمات سوپر گروه💠:\n➖➖➖➖➖➖➖➖\n🔸$اسم ربات >> ژوپیتر 3.1 \n🔹$قفل لینک >> "..settings.lock_link.."\n🔸$قفل وب لینک >> "..settings.lock_webpage.."\n🔹$قفل تگ >> "..settings.lock_tag.."\n🔸$قفل شکلک >> "..settings.lock_emoji.."\n🔹$قفل انگلیسی >> "..settings.lock_eng.."\n🔸$قفل کلمات زشت >> "..settings.lock_badw.."\n🔹$قفل حساسیت >> "..settings.flood.."\n🔸$مقدار حساسیت >> "..NUM_MSG_MAX.."\n🔹$قفل اسپم >> "..settings.lock_spam.."\n🔸$قفل مخاطب >> "..settings.lock_contacts.."\n🔹$قفل عربی/فارسی >> "..settings.lock_arabic.."\n🔸$قفل اعضا >> "..settings.lock_member.."\n🔹$قفل راستچین >> "..settings.lock_rtl.."\n🔸$قفل فروارد >> "..settings.lock_fwd.."\n🔹$قفل اعلان >> "..settings.lock_tgservice.."\n🔸$قفل استیکر >> "..settings.lock_sticker.."\n🔹$عمومی >> "..settings.public.."\n🔸$قفل سختگیرانه >> "..settings.strict
   reply_msg(msg.id, text, ok_cb, false)
 end
 
@@ -1493,7 +1493,7 @@ local function run(msg, matches)
 				resolve_username(username,  callbackres, cbres_extra)
 			else
 				savelog(msg.to.id, name_log.." ["..msg.from.id.."] requested SuperGroup ID")
-				return reply_msg(msg.id, ">> 💠$ایدی سوپر گروه: "..msg.to.id.."\n>> 🔰$SuperGroup Name: "..msg.to.title.."\n>> 🔹$First Name: "..(msg.from.first_name or '').."\n>> 🔸$Last Name: "..(msg.from.last_name or '').."\n>> 🚩$Your ID: "..msg.from.id.."\n>> 🔆$Username: @"..(msg.from.username or '').."\n>> 📞$Phone Number: +"..(msg.from.phone or '404 Not Found!').."\n>> 💭$Your Link: Telegram.Me/"..(msg.from.username or '').."\n>> 📝$Group Type: #SuperGroup", ok_cb, false)		end
+				return reply_msg(msg.id, ">> 💠$ایدی سوپر گروه: "..msg.to.id.."\n>> 🔰$اسم سوپرگروه: "..msg.to.title.."\n>> 🔹$اسم کوچک: "..(msg.from.first_name or '').."\n>> 🔸$نام خانوادگی: "..(msg.from.last_name or '').."\n>> 🚩$ایدی شما: "..msg.from.id.."\n>> 🔆$نام کاربری شما: @"..(msg.from.username or '').."\n>> 📞$شماره موبایل: +"..(msg.from.phone or '404 Not Found!').."\n>> 💭$لینک شما: Telegram.Me/"..(msg.from.username or '').."\n>> 📝$نوع گروه: #SuperGroup", ok_cb, false)		end
 		end
 
 		if matches[1] == 'اخراجم کن' then
