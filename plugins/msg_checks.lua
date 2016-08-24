@@ -1,4 +1,3 @@
-
 --[[
 |------------------------------------------------- |--------- ______-----------------_______---|
 |   ______   __   ______    _____     _____    __  |  _____  |  ____|  __     __    /  _____/  |
@@ -118,7 +117,7 @@ if is_chat_msg(msg) or is_super_group(msg) then
 	else
 		strict = '🔓'
 	end
-		if msg and not msg.service and is_muted(msg.to.id, 'All: 🔐') or is_muted_user(msg.to.id, msg.from.id) and not msg.service then
+		if msg and not msg.service and is_muted(msg.to.id, 'All: yes') or is_muted_user(msg.to.id, msg.from.id) and not msg.service then
 			delete_msg(msg.id, ok_cb, false)
 			if to_chat then
 			--	kick_user(msg.from.id, msg.to.id)
@@ -207,7 +206,7 @@ if is_chat_msg(msg) or is_super_group(msg) then
 					kick_user(msg.from.id, msg.to.id)
 				end
 			end
-			if is_muted(msg.to.id, "Text: 🔐") and msg.text and not msg.media and not msg.service then
+			if is_muted(msg.to.id, "Text: yes") and msg.text and not msg.media and not msg.service then
 				delete_msg(msg.id, ok_cb, false)
 				if to_chat then
 					kick_user(msg.from.id, msg.to.id)
@@ -403,33 +402,33 @@ if is_chat_msg(msg) or is_super_group(msg) then
 				end
 			end
 			local is_photo_caption =  msg.media.caption and msg.media.caption:match("photo")--".jpg",
-			if is_muted(msg.to.id, 'Photo: 🔐') and msg.media.type:match("photo") or is_photo_caption and not msg.service then
+			if is_muted(msg.to.id, 'Photo: yes') and msg.media.type:match("photo") or is_photo_caption and not msg.service then
 				delete_msg(msg.id, ok_cb, false)
 				if strict == "🔐" or to_chat then
 					--	kick_user(msg.from.id, msg.to.id)
 				end
 			end
 			local is_gif_caption =  msg.media.caption and msg.media.caption:match(".mp4")
-			if is_muted(msg.to.id, 'Gifs: 🔐') and is_gif_caption and msg.media.type:match("document") and not msg.service then
+			if is_muted(msg.to.id, 'Gifs: yes') and is_gif_caption and msg.media.type:match("document") and not msg.service then
 				delete_msg(msg.id, ok_cb, false)
 				if strict == "🔐" or to_chat then
 					--	kick_user(msg.from.id, msg.to.id)
 				end
 			end
-			if is_muted(msg.to.id, 'Audio: 🔐') and msg.media.type:match("audio") and not msg.service then
+			if is_muted(msg.to.id, 'Audio: yes') and msg.media.type:match("audio") and not msg.service then
 				delete_msg(msg.id, ok_cb, false)
 				if strict == "🔐" or to_chat then
 					kick_user(msg.from.id, msg.to.id)
 				end
 			end
 			local is_video_caption = msg.media.caption and msg.media.caption:lower(".mp4","video")
-			if  is_muted(msg.to.id, 'Video: 🔐') and msg.media.type:match("video") and not msg.service then
+			if  is_muted(msg.to.id, 'Video: yes') and msg.media.type:match("video") and not msg.service then
 				delete_msg(msg.id, ok_cb, false)
 				if strict == "🔐" or to_chat then
 					kick_user(msg.from.id, msg.to.id)
 				end
 			end
-			if is_muted(msg.to.id, 'Documents: 🔐') and msg.media.type:match("document") and not msg.service then
+			if is_muted(msg.to.id, 'Documents: yes') and msg.media.type:match("document") and not msg.service then
 				delete_msg(msg.id, ok_cb, false)
 				if strict == "🔐" or to_chat then
 					kick_user(msg.from.id, msg.to.id)
