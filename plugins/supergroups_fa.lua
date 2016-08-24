@@ -2102,7 +2102,7 @@ local function run(msg, matches)
 			local chat_id = msg.to.id
 			if matches[2] == 'audio' then
 			local msg_type = 'Audio'
-				if not is_muted(chat_id, msg_type..': 🔐') then
+				if not is_muted(chat_id, msg_type..': yes') then
 					savelog(msg.to.id, name_log.." ["..msg.from.id.."] set SuperGroup to: mute "..msg_type)
 					mute(chat_id, msg_type)
 					return "💠صدا ممنوع شد💠"
@@ -2112,7 +2112,7 @@ local function run(msg, matches)
 			end
 			if matches[2] == 'عکس' then
 			local msg_type = 'Photo'
-				if not is_muted(chat_id, msg_type..': 🔐') then
+				if not is_muted(chat_id, msg_type..': yes') then
 					savelog(msg.to.id, name_log.." ["..msg.from.id.."] set SuperGroup to: mute "..msg_type)
 					mute(chat_id, msg_type)
 					return "💠عکس ممنوع شد💠"
@@ -2122,7 +2122,7 @@ local function run(msg, matches)
 			end
 			if matches[2] == 'فیلم' then
 			local msg_type = 'Video'
-				if not is_muted(chat_id, msg_type..': 🔐') then
+				if not is_muted(chat_id, msg_type..': yes') then
 					savelog(msg.to.id, name_log.." ["..msg.from.id.."] set SuperGroup to: mute "..msg_type)
 					mute(chat_id, msg_type)
 					return "💠فیلم ممنوع شد💠"
@@ -2132,7 +2132,7 @@ local function run(msg, matches)
 			end
 			if matches[2] == 'گیف' then
 			local msg_type = 'Gifs'
-				if not is_muted(chat_id, msg_type..': 🔐') then
+				if not is_muted(chat_id, msg_type..': yes') then
 					savelog(msg.to.id, name_log.." ["..msg.from.id.."] set SuperGroup to: mute "..msg_type)
 					mute(chat_id, msg_type)
 					return "💠گیف ممنوع شد💠"
@@ -2142,7 +2142,7 @@ local function run(msg, matches)
 			end
 			if matches[2] == 'فایل' then
 			local msg_type = 'Documents'
-				if not is_muted(chat_id, msg_type..': 🔐') then
+				if not is_muted(chat_id, msg_type..': yes') then
 					savelog(msg.to.id, name_log.." ["..msg.from.id.."] set SuperGroup to: mute "..msg_type)
 					mute(chat_id, msg_type)
 					return "💠فایل ممنوع شد💠"
@@ -2152,7 +2152,7 @@ local function run(msg, matches)
 			end
 			if matches[2] == 'متن' then
 			local msg_type = 'Text'
-				if not is_muted(chat_id, msg_type..': 🔐') then
+				if not is_muted(chat_id, msg_type..': yes') then
 					savelog(msg.to.id, name_log.." ["..msg.from.id.."] set SuperGroup to: mute "..msg_type)
 					mute(chat_id, msg_type)
 					return "💠متن ممنوع شد💠"
@@ -2162,7 +2162,7 @@ local function run(msg, matches)
 			end
 			if matches[2] == 'همه' then
 			local msg_type = 'All'
-				if not is_muted(chat_id, msg_type..': 🔐') then
+				if not is_muted(chat_id, msg_type..': yes') then
 					savelog(msg.to.id, name_log.." ["..msg.from.id.."] set SuperGroup to: mute "..msg_type)
 					mute(chat_id, msg_type)
 					return "💠همه چی ممنوع شد💠"
@@ -2175,7 +2175,7 @@ local function run(msg, matches)
 			local chat_id = msg.to.id
 			if matches[2] == 'صدا' then
 			local msg_type = 'Audio'
-				if is_muted(chat_id, msg_type..': 🔓') then
+				if is_muted(chat_id, msg_type..': yes') then
 					savelog(msg.to.id, name_log.." ["..msg.from.id.."] set SuperGroup to: unmute "..msg_type)
 					unmute(chat_id, msg_type)
 					return "💠صدا ازاد شد💠"
@@ -2185,7 +2185,7 @@ local function run(msg, matches)
 			end
 			if matches[2] == 'عکس' then
 			local msg_type = 'Photo'
-				if is_muted(chat_id, msg_type..': 🔓') then
+				if is_muted(chat_id, msg_type..': yes') then
 					savelog(msg.to.id, name_log.." ["..msg.from.id.."] set SuperGroup to: unmute "..msg_type)
 					unmute(chat_id, msg_type)
 					return "💠عکس ازاد شد💠"
@@ -2195,7 +2195,7 @@ local function run(msg, matches)
 			end
 			if matches[2] == 'فیلم' then
 			local msg_type = 'Video'
-				if is_muted(chat_id, msg_type..': 🔓') then
+				if is_muted(chat_id, msg_type..': yes') then
 					savelog(msg.to.id, name_log.." ["..msg.from.id.."] set SuperGroup to: unmute "..msg_type)
 					unmute(chat_id, msg_type)
 					return "💠فیلم ازاد شد💠"
@@ -2205,7 +2205,7 @@ local function run(msg, matches)
 			end
 			if matches[2] == 'گیف' then
 			local msg_type = 'Gifs'
-				if is_muted(chat_id, msg_type..': 🔓') then
+				if is_muted(chat_id, msg_type..': yes') then
 					savelog(msg.to.id, name_log.." ["..msg.from.id.."] set SuperGroup to: unmute "..msg_type)
 					unmute(chat_id, msg_type)
 					return "💠گیف ازاد شد💠"
@@ -2215,7 +2215,7 @@ local function run(msg, matches)
 			end
 			if matches[2] == 'فایل' then
 			local msg_type = 'Documents'
-				if is_muted(chat_id, msg_type..': 🔓') then
+				if is_muted(chat_id, msg_type..': yes') then
 					savelog(msg.to.id, name_log.." ["..msg.from.id.."] set SuperGroup to: unmute "..msg_type)
 					unmute(chat_id, msg_type)
 					return "💠فایل ازاد شد💠"
@@ -2225,7 +2225,7 @@ local function run(msg, matches)
 			end
 			if matches[2] == 'متن' then
 			local msg_type = 'Text'
-				if is_muted(chat_id, msg_type..': 🔓') then
+				if is_muted(chat_id, msg_type..': yes') then
 					savelog(msg.to.id, name_log.." ["..msg.from.id.."] set SuperGroup to: unmute message")
 					unmute(chat_id, msg_type)
 					return "💠متن ازاد شد💠"
@@ -2235,7 +2235,7 @@ local function run(msg, matches)
 			end
 			if matches[2] == 'همه' then
 			local msg_type = 'All'
-				if is_muted(chat_id, msg_type..': 🔓') then
+				if is_muted(chat_id, msg_type..': yes') then
 					savelog(msg.to.id, name_log.." ["..msg.from.id.."] set SuperGroup to: unmute "..msg_type)
 					unmute(chat_id, msg_type)
 					return ">> 💠همه چی ازاد شد💠"
