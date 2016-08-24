@@ -10,7 +10,7 @@
 |                             The Other Code Writer: Erfan Kiya                                |
 |----------------------------------------------------------------------------------------------|
 ]]
-﻿local function pre_process(msg)
+local function pre_process(msg)
 local to = msg.to.type
 local service = msg.service
 	if to == 'user' and msg.fwd_from then
