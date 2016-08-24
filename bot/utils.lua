@@ -1018,7 +1018,7 @@ end
 
 --Begin Chat Mutes
 function set_mutes(chat_id)
-	mutes = {[1]= "Audio: 🔓",[2]= "Photo: 🔓",[3]= "All: 🔓",[4]="Documents: 🔓",[5]="Text: 🔓",[6]= "Video: 🔓",[7]= "Gifs: 🔓"}
+	mutes = {[1]= "Audio: no",[2]= "Photo: no",[3]= "All: no",[4]="Documents: no",[5]="Text: no",[6]= "Video: no",[7]= "Gifs: no"}
 	local hash = 'mute:'..chat_id
 	for k,v in pairsByKeys(mutes) do
 	setting = v
@@ -1027,7 +1027,7 @@ function set_mutes(chat_id)
 end
 
 function has_mutes(chat_id)
-	mutes = {[1]= "Audio: 🔓",[2]= "Photo: 🔓",[3]= "All: 🔓",[4]="Documents: 🔓",[5]="Text: 🔓",[6]= "Video: 🔓",[7]= "Gifs: 🔓"}
+	mutes = {[1]= "Audio: no",[2]= "Photo: no",[3]= "All: no",[4]="Documents: no",[5]="Text: no",[6]= "Video: no",[7]= "Gifs: no"}
 	local hash = 'mute:'..chat_id
 	for k,v in pairsByKeys(mutes) do
 		setting = v
@@ -1043,10 +1043,10 @@ end
 
 function mute(chat_id, msg_type)
   local hash = 'mute:'..chat_id
-  local 🔐 = "🔐"
-  local 🔓 = '🔓'
-  local old_setting = msg_type..': '..🔓
-  local setting = msg_type..': '..🔐
+  local yes = "yes"
+  local no = 'no'
+  local old_setting = msg_type..': '..no
+  local setting = msg_type..': '..yes
   redis:srem(hash, old_setting)
   redis:sadd(hash, setting)
 end
@@ -1061,10 +1061,10 @@ end
 function unmute(chat_id, msg_type)
 	--Save on redis
 	local hash = 'mute:'..chat_id
-	local 🔐 = '🔐'
-	local 🔓 = '🔓'
-	local old_setting = msg_type..': '..🔐
-	local setting = msg_type..': '..🔓
+	local yes = 'yes'
+	local no = 'no'
+	local old_setting = msg_type..': '..yes
+	local setting = msg_type..': '..no
 	redis:srem(hash, old_setting)
 	redis:sadd(hash, setting)
 end
