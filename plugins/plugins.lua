@@ -10,6 +10,8 @@
 |                             The Other Code Writer: Erfan Kiya                                |
 |----------------------------------------------------------------------------------------------|
 ]]
+do
+
 -- Returns the key (index) in the config.enabled_plugins table
 local function plugin_enabled( name )
   for k,v in pairs(_config.enabled_plugins) do
