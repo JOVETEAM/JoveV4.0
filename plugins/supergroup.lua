@@ -2102,7 +2102,7 @@ local function run(msg, matches)
 			local chat_id = msg.to.id
 			if matches[2] == 'audio' then
 			local msg_type = 'Audio'
-				if not is_muted(chat_id, msg_type..': 🔐') then
+				if not is_muted(chat_id, msg_type..': yes') then
 					savelog(msg.to.id, name_log.." ["..msg.from.id.."] set SuperGroup to: mute "..msg_type)
 					mute(chat_id, msg_type)
 					return "💠Audio has been muted💠"
@@ -2112,7 +2112,7 @@ local function run(msg, matches)
 			end
 			if matches[2] == 'photo' then
 			local msg_type = 'Photo'
-				if not is_muted(chat_id, msg_type..': 🔐') then
+				if not is_muted(chat_id, msg_type..': yes') then
 					savelog(msg.to.id, name_log.." ["..msg.from.id.."] set SuperGroup to: mute "..msg_type)
 					mute(chat_id, msg_type)
 					return "💠Photo has been muted💠"
@@ -2122,7 +2122,7 @@ local function run(msg, matches)
 			end
 			if matches[2] == 'video' then
 			local msg_type = 'Video'
-				if not is_muted(chat_id, msg_type..': 🔐') then
+				if not is_muted(chat_id, msg_type..': yes') then
 					savelog(msg.to.id, name_log.." ["..msg.from.id.."] set SuperGroup to: mute "..msg_type)
 					mute(chat_id, msg_type)
 					return "💠Video has been muted💠"
@@ -2132,7 +2132,7 @@ local function run(msg, matches)
 			end
 			if matches[2] == 'gifs' then
 			local msg_type = 'Gifs'
-				if not is_muted(chat_id, msg_type..': 🔐') then
+				if not is_muted(chat_id, msg_type..': yes') then
 					savelog(msg.to.id, name_log.." ["..msg.from.id.."] set SuperGroup to: mute "..msg_type)
 					mute(chat_id, msg_type)
 					return "💠Gifs have been muted💠"
@@ -2142,7 +2142,7 @@ local function run(msg, matches)
 			end
 			if matches[2] == 'documents' then
 			local msg_type = 'Documents'
-				if not is_muted(chat_id, msg_type..': 🔐') then
+				if not is_muted(chat_id, msg_type..': yes') then
 					savelog(msg.to.id, name_log.." ["..msg.from.id.."] set SuperGroup to: mute "..msg_type)
 					mute(chat_id, msg_type)
 					return "💠Documents have been muted💠"
@@ -2152,7 +2152,7 @@ local function run(msg, matches)
 			end
 			if matches[2] == 'text' then
 			local msg_type = 'Text'
-				if not is_muted(chat_id, msg_type..': 🔐') then
+				if not is_muted(chat_id, msg_type..': yes') then
 					savelog(msg.to.id, name_log.." ["..msg.from.id.."] set SuperGroup to: mute "..msg_type)
 					mute(chat_id, msg_type)
 					return "💠Text has been muted💠"
@@ -2162,7 +2162,7 @@ local function run(msg, matches)
 			end
 			if matches[2] == 'all' then
 			local msg_type = 'All'
-				if not is_muted(chat_id, msg_type..': 🔐') then
+				if not is_muted(chat_id, msg_type..': yes') then
 					savelog(msg.to.id, name_log.." ["..msg.from.id.."] set SuperGroup to: mute "..msg_type)
 					mute(chat_id, msg_type)
 					return "💠Mute ALL  has been enabled💠"
@@ -2175,7 +2175,7 @@ local function run(msg, matches)
 			local chat_id = msg.to.id
 			if matches[2] == 'audio' then
 			local msg_type = 'Audio'
-				if is_muted(chat_id, msg_type..': 🔓') then
+				if is_muted(chat_id, msg_type..': yes') then
 					savelog(msg.to.id, name_log.." ["..msg.from.id.."] set SuperGroup to: unmute "..msg_type)
 					unmute(chat_id, msg_type)
 					return "💠Audio has been unmuted💠"
@@ -2185,7 +2185,7 @@ local function run(msg, matches)
 			end
 			if matches[2] == 'photo' then
 			local msg_type = 'Photo'
-				if is_muted(chat_id, msg_type..': 🔓') then
+				if is_muted(chat_id, msg_type..': yes') then
 					savelog(msg.to.id, name_log.." ["..msg.from.id.."] set SuperGroup to: unmute "..msg_type)
 					unmute(chat_id, msg_type)
 					return "💠Photo has been unmuted💠"
@@ -2195,7 +2195,7 @@ local function run(msg, matches)
 			end
 			if matches[2] == 'video' then
 			local msg_type = 'Video'
-				if is_muted(chat_id, msg_type..': 🔓') then
+				if is_muted(chat_id, msg_type..': yes') then
 					savelog(msg.to.id, name_log.." ["..msg.from.id.."] set SuperGroup to: unmute "..msg_type)
 					unmute(chat_id, msg_type)
 					return "💠Video has been unmuted💠"
@@ -2205,7 +2205,7 @@ local function run(msg, matches)
 			end
 			if matches[2] == 'gifs' then
 			local msg_type = 'Gifs'
-				if is_muted(chat_id, msg_type..': 🔓') then
+				if is_muted(chat_id, msg_type..': yes') then
 					savelog(msg.to.id, name_log.." ["..msg.from.id.."] set SuperGroup to: unmute "..msg_type)
 					unmute(chat_id, msg_type)
 					return "💠Gifs have been unmuted💠"
@@ -2215,7 +2215,7 @@ local function run(msg, matches)
 			end
 			if matches[2] == 'documents' then
 			local msg_type = 'Documents'
-				if is_muted(chat_id, msg_type..': 🔓') then
+				if is_muted(chat_id, msg_type..': yes') then
 					savelog(msg.to.id, name_log.." ["..msg.from.id.."] set SuperGroup to: unmute "..msg_type)
 					unmute(chat_id, msg_type)
 					return "💠Documents have been unmuted💠"
@@ -2225,7 +2225,7 @@ local function run(msg, matches)
 			end
 			if matches[2] == 'text' then
 			local msg_type = 'Text'
-				if is_muted(chat_id, msg_type..': 🔓') then
+				if is_muted(chat_id, msg_type..': yes') then
 					savelog(msg.to.id, name_log.." ["..msg.from.id.."] set SuperGroup to: unmute message")
 					unmute(chat_id, msg_type)
 					return "💠Text has been unmuted💠"
@@ -2235,7 +2235,7 @@ local function run(msg, matches)
 			end
 			if matches[2] == 'all' then
 			local msg_type = 'All'
-				if is_muted(chat_id, msg_type..': 🔓') then
+				if is_muted(chat_id, msg_type..': yes') then
 					savelog(msg.to.id, name_log.." ["..msg.from.id.."] set SuperGroup to: unmute "..msg_type)
 					unmute(chat_id, msg_type)
 					return ">> 💠Mute ALL has been disabled💠"
