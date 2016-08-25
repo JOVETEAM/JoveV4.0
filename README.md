@@ -274,9 +274,12 @@ After you run the bot for first time, send it `!id`. Get your ID and stop the bo
 Open ./data/config.lua and add your ID to the "sudo_users" section in the following format:
 ```
   sudo_users = {
-     218722292,192727254,247473926,68853039
-    0,
-    YourID
+     218722292,
+     192727254,
+     247473926,
+     68853039,
+     0,
+     YourID
   }
 ```
 Then restart the bot.
@@ -295,40 +298,39 @@ Create a realm using the `!createrealm` command.
 
 * * *
 
-# Support and development
-
-Check out this [tutorial by Telegram Geeks](http://telegramgeeks.com/2016/01/teleseed-tutorial/) for further assistance with setup and installation.
-
-**Do not contact us** in private for support.
-Join our bot development group by sending `/join 1047524697` to [@TeleSeed](https://telegram.me/TeleSeed)
-
 # Special thanks to
-[@seyedan25](https://telegram.me/seyedan25)
+[@vVv_ERPO_vVv](https://telegram.me/vVv_ERPO_vVv)
 
-For managing [@teleseed](https://telegram.me/TeleSeed) on Telegram.
+For managing [@JoveTG](https://telegram.me/JoveTG) on Telegram.
 
-[@Vamptacus](https://telegram.me/Vamptacus)
+[@vWv_ERPO_vWv](https://telegram.me/vWv_ERPO_vWv)
 
-For graphic designs.
+For Write Plugins.And..
 
-[topkecleon](https://github.com/topkecleon)
+[@vMv_ERPO_vMv](https://telegram.me/vMv_ERPO_vMv)
 
-[Juan Potato](https://github.com/JuanPotato)
+[@vXv_ERPO_vXv](https://telegram.me/vXv_ERPO_vXv)
+
+For Managing Bot.
 
 * * *
 
-# Our team!
+# Titan Zeus team!
 
-[Alphonse](https://github.com/hmon) ([Telegram](https://telegram.me/iwals))
+The Manager Of Team: [Pouya Poorrahman](https://telegram.me/vVv_ERPO_vVv)
 
-[I M /-\ N](https://github.com/imandaneshi) ([Telegram](https://telegram.me/imandaneshi))
+The Assistant Of Team: [Erfan Kiya](https://telegram.me/vWv_ERPO_vWv)
 
-[Siyanew](https://github.com/Siyanew) ([Telegram](https://telegram.me/Siyanew))
+The Manager: [Mostafa YarAli](https://telegram.me/vMv_ERPO_vMv)
 
-[Rondoozle](https://github.com/Rondoozle) ([Telegram](https://telegram.me/POTUS))
+The Manager: [Mohamad Pahlavan](https://telegram.me/vXv_ERPO_vXv)
+
+The Queen: [Mahsa Nasiri](https://telegram.me/vQv_ErPo_vQv)
+
+The Admin: [Omid](https://telegram.me/Omid0263)
 
 ### Our Telegram channels:
 
-English: [@SeedChannel](https://telegram.me/seedchannel)
+Persian: [@JoveCH](https://telegram.me/jovech)
 
-Persian: [@IranSeed](https://telegram.me/iranseed)
+### Our Bots:
