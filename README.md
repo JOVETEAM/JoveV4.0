@@ -1,10 +1,12 @@
 # [Jove V3.1](https://telegram.me/JoveTG)
 
+| Bot Name | Description | Powered By | Team name |
+|:--------|:------------|:------------|:------------|
+| Jove | Cli Anti Spam bot version 3.1 | Pouya Poorrahman | Titan Zeus |
+
 [![https://gitter.im/TitanZeus/Jove](https://badges.gitter.im/TitanZeus/Jove.svg)](https://gitter.im/TitanZeus/Jove?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 **An advanced and powerful administration bot based on [yagop/telegram-bot](https://github.com/yagop/telegram-bot) licensed under the [GNU Affero General Public License](https://github.com/SEEDTEAM/TeleSeed/blob/master/LICENSE)**.
-# Features
-
 # Features
 
 * **A powerful antispam system with custom sensitivity for each group**
@@ -334,3 +336,23 @@ The Admin: [Omid](https://telegram.me/Omid0263)
 Persian: [@JoveCH](https://telegram.me/jovech)
 
 ### Our Bots:
+
+Intenational Jove: [@JoveTG](https://telegram.me/joveTG)
+
+Jove 2: [@JoveTG2](https://telegram.me/joveTG2)
+
+Jove 3: [@JoveTG3](https://telegram.me/joveTG3)
+
+Jove 4: [@JoveTG4](https://telegram.me/joveTG4)
+
+Jove 5: [@JoveTG5](https://telegram.me/joveTG5)
+
+Jove 6: [@JoveTG6](https://telegram.me/joveTG6)
+
+Jove 7: [@JoveTG2](https://telegram.me/joveTG7)
+
+Jove Cli: [@JoveCli](https://telegram.me/joveCli)
+
+Jove Api: [@JoveApiBot](https://telegram.me/joveApiBot)
+
+Jove Helper: [@JoveTGBot](https://telegram.me/joveTGBot)
