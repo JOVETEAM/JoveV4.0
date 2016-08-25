@@ -5,6 +5,8 @@
 **An advanced and powerful administration bot based on [yagop/telegram-bot](https://github.com/yagop/telegram-bot) licensed under the [GNU Affero General Public License](https://github.com/SEEDTEAM/TeleSeed/blob/master/LICENSE)**.
 # Features
 
+# Features
+
 * **A powerful antispam system with custom sensitivity for each group**
 * **Multiple realms (admin groups)**
 * **Recalcitrant to any kind of spamming (X/Y bots, name/photo changers, etc.)**
@@ -18,7 +20,26 @@
 * **Group administration via private messages**
 * **Only mods, owner and admin can add bots in groups**
 * **Arabic lock**
-* **Lock TgService**
+* **Lock TGService**
+* **Lock Link**
+* **Lock Flood/Spam**
+* **Lock Persian**
+* **Lock Member**
+* **Lock Sticker**
+* **Lock Contacts**
+* **Public On|Off**
+* **Mute Audio**
+* **Mute Photo**
+* **Mute All**
+* **Mute Video**
+* **Mute Gifs**
+* **Mute Dacuments**
+* **Mute Text**
+* **AntiCrash**
+* **AutoLaunch**
+* **Kick By Reply**
+* **Advanced ID Plugin**
+* **Show Your Uptime Bot**
 * **Chat list**
 * **And more!**
 
@@ -26,17 +47,17 @@
 * * *
 
 ## Commands
-TeleSeed has several commands that are only usable at certain ranks.
+Jove has several commands that are only usable at certain ranks.
 
 
-## General Commands
+## General Commands {#general_commands}
 | Command | Description |
 |:--------|:------------|
-| [#!/]id | Returns group/SuperGroup ID or user id in pm. |
-| [#!/]teleseed | Returns bot information. |
+| [#!/]id | Returns group/SuperGroup ID & more or user id in pm. |
+| [#!/]jove | Returns bot information. |
 
 
-## Private Message Commands
+## Private Message Commands {#privmsg_commands}
 | Command | Description |
 |:--------|:------------|
 | [#!/]help | Returns help text. |
@@ -46,7 +67,7 @@ TeleSeed has several commands that are only usable at certain ranks.
 | [#!/]join [GroupID] | Join a public chat by id |
 
 
-## Moderator commands 
+## Moderator commands {#moderator_commands}
 
 | Command | Description | Groups? | SuperGroups? |
 |:--------|:------------|:--------|:-------------|
@@ -78,11 +99,11 @@ TeleSeed has several commands that are only usable at certain ranks.
 | [#!/]setlink | Set a new SuperGroup link _If bot is not creator_. | N | Y |
 | [#!/]link | Retrieves the group/SuperGroup link. | Y | Y |
 | [#!/]rules | Retrieves the group/SuperGroup rules. | Y | Y |
-| [#!/]lock [setting](#settings-settings) | Lock group/SuperGroup settings. | Y | Y |
-| [#!/]unlock [setting](#settings-settings) | Unlock group/SuperGroup. | Y | Y |
-| [#!/]mute [mute]#mutes-mutes) | mute group message types. | Y | Y |
-| [#!/]unmute [mute](#mutes-mutes) | unmute group message types. | Y | Y |
-| [#!/]setflood [value](#settings-settings) | Set [value] as flood sensitivity.| Y | Y |
+| [#!/]lock [setting](#settings) | Lock group/SuperGroup settings. | Y | Y |
+| [#!/]unlock [setting](#settings) | Unlock group/SuperGroup. | Y | Y |
+| [#!/]mute [mute](#mutes) | mute group message types. | Y | Y |
+| [#!/]unmute [mute](#mutes) | unmute group message types. | Y | Y |
+| [#!/]setflood [value](#settings) | Set [value] as flood sensitivity.| Y | Y |
 | [#!/]muteuser [username<html>&#124;</html>id<html>&#124;</html>reply] | Mute and unmute a user in chat. ***If a muted user posts a message, the message is deleted automaically only owners can mute <html>&#124;</html> mods and owners can unmute*** | Y | Y |
 | [#!/]mutelist | Returns list of muted users in group/SuperGroup. | Y | Y |
 | [#!/]muteslist | Returns mutes for group/SuperGroup. | Y | Y |
@@ -90,18 +111,18 @@ TeleSeed has several commands that are only usable at certain ranks.
 | [#!/]stats | Returns simple message statistics in a .txt document. | Y | Y |
 | [#!/]statslist | Returns simple message statistics in a message. | Y | Y |
 | [#!/]banlist | Returns group/SuperGroup banlist. | Y | Y |
-| [#!/]clean [rules<html>&#124;</html>about<html>&#124;</html>modlisthtml>&#124;</html>bots<html>&#124;</html>mutelist] | Clears rules, about, modlist, bots, or mutelist | Y | Y |
+| [#!/]clean [rules<html>&#124;</html>about<html>&#124;</html>modlist<html>&#124;</html>mutelist] | Clears rules, about, modlist, or mutelist | Y | Y |
 | [#!/]del | Deletes a message by reply. | N | Y |
+| [#!/]jove | show bot version | Y | Y |
+| [#!/]version | show bot info | Y | Y |
 | [#!/]res [username] | Returns users name and id by username. | Y | Y |
 | [#!/]log | Returns group logs.***In SuperGroups:*** Search for kick reasons using [#RTL<html>&#124;</html>#spam<html>&#124;</html>#lockmember] | Y | Y |
 
-## Owner commands
+## Owner commands {#moderator_commands}
 
 | Command | Description |   groups/SuperGroups? |  In private? |
 |:--------|:------------|:----------------------|:-------------|
 | [#!/]muteuser [username<html>&#124;</html>id<html>&#124;</html>reply] | Mute and unmute a user in chat.***If a muted user posts a message, the message is deleted automaically / only owners can mute / mods and owners can unmute*** |  | N |
-| [#!/]all | Returns all available information about current group. | Y | N |
-| [#!/]all [GroupID] | Returns all available information about group by GroupID. | Y | N |
 | [#!/]owners [GroupID] [kick<html>&#124;</html>ban<html>&#124;</html>unban] [UserID] | Kick, ban, or unban a user from a group by GroupID and UserID. | N | Y |
 | [#!/]owners [GroupID] clean  [modlist<html>&#124;</html>rules<html>&#124;</html>about] | Clear options by GroupID. | N | Y |
 | [#!/]owners [GroupID] setflood [value] | Set flood for a group by GroupID and a value [1-5]. | N | Y |
@@ -146,30 +167,25 @@ TeleSeed has several commands that are only usable at certain ranks.
 | [#!/]-support | deomote user from support. | Y | Y | Y |
 | [#!/]pm [UserID] <text> | Sends a private message to a user by UserID. | Y | Y | Y |
 | [#!/]import <GroupLink> | Bot joins a group by GroupLink. | Y | Y | Y |
-| [#!/]pmblock [UserID] | Block a user from bot private message and bot photo. | Y | Y | Y |
-| [#!/]pmunblock [UserID] | Unblock a user from bot private message and bot photo. | Y | Y | Y |
 | [#!/]markread [on<html>&#124;</html>off] | Toggle bot to doubble check or not doubble check messages. | Y | Y | Y |
-| [#!/]setbotphoto | Set bot photo. | Y | Y | Y |
 | [#!/]contactlist | Bot will generate a list of all it's contacts***and send it by private message of command sender  | Y | Y | Y |
 | [#!/]dialoglist | Bot will generate a list of all it's private message users***and send it by private message of command sender  | Y | Y | Y |
 | [#!/]delcontact | Delete bot contact. | Y | Y | Y |
 | [#!/]reload | Reloads all bot plugins | Y | Y | Y |
-| [#!/]updateid | Adds long_id to moderation data for groups. | Y | Y | Y |
 | [#!/]!bc [GroupID] [text] | This command will send text to [GroupID]| Y | Y | Y |
 | [#!/]leave | Bot will leave that group and can only be re-invited by an admin with bot phone number | Y | Y | Y |
 | [#!/]mp | (Mod Promote) Set user as a mod of supergroup. **TESTING** | N | Y | N |
 | [#!/]md | (Mod demote) Removes user from mod of supergroup. **TESTING**| N | Y | N |
 
-## Sudo Commands 
+## Sudo Commands {#sudo_commands}
 
 | Command | Groups? | SuperGroups? | Realms? |
 |:--------|:--------|:-------------|---------|
 | [#!/]addadmin [id<html>&#124;</html>username] | Set a user as bot admin. | Y | Y | Y |
 | [#!/]removeadmin [id<html>&#124;</html>username] | Remove a user from bot admin. | Y | Y | Y |
-| [#!/]sync_gbans | Sync your GBans with official @TeleSeed | Y | Y | Y |
 
 
-## Settings 
+## Settings {#settings}
 
 | Command | Groups? | SuperGroups? |
 |:--------|:--------|:-------------|
@@ -193,7 +209,7 @@ TeleSeed has several commands that are only usable at certain ranks.
 /public [yes|no]: Set group/SuperGroup visibility in pm `!chats` or `!chatlist` commands.
 
 
-### Mutes
+### Mutes {#mutes}
 
 | Command |
 |:--------|
@@ -202,14 +218,13 @@ TeleSeed has several commands that are only usable at certain ranks.
 | [#!/]mute photo |
 | [#!/]mute documents |
 | [#!/]mute gifs |
-| [#!/]mute text |
 | [#!/]mute all |
 
 **Groups: If "muted" message type: user is kicked if message type is posted**
 
 **SuperGroups: A "muted" message type is auto-deleted if posted **
 
-### Ranks 
+### Ranks {#ranks}
 
 | Rank | Description |
 |:------|:------------|
@@ -223,7 +238,8 @@ TeleSeed has several commands that are only usable at certain ranks.
 
 Each higher status inherits the privileges of the lower status.
 
-**You can use "#", "!", or "/" to begin all commands
+**You can use "#", "!", or "/" or without those to begin all commands
+
 
 * * *
 
@@ -231,13 +247,13 @@ Each higher status inherits the privileges of the lower status.
 
 ```sh
 # Install dependencies.
-# Tested on Ubuntu 14.04. For other OSs, check out https://github.com/yagop/telegram-bot/wiki/Installation
+# Tested on Ubuntu 15.10. For other OSs, check out https://github.com/yagop/telegram-bot/wiki/Installation
 sudo apt-get install libreadline-dev libconfig-dev libssl-dev lua5.2 liblua5.2-dev lua-socket lua-sec lua-expat libevent-dev make unzip git redis-server autoconf g++ libjansson-dev libpython-dev expat libexpat1-dev
 
 # Let's install the bot.
 cd $HOME
-git clone https://github.com/SEEDTEAM/TeleSeed.git -b supergroups
-cd TeleSeed
+git clone https://github.com/TitanZeus/jove.git -b supergroups
+cd jove
 chmod +x launch.sh
 ./launch.sh install
 ./launch.sh # Enter a phone number & confirmation code.
@@ -246,7 +262,7 @@ chmod +x launch.sh
 To install everything in one command (useful for VPS deployment) on Debian-based distros, use:
 ```sh
 #https://github.com/yagop/telegram-bot/wiki/Installation
-sudo apt-get update; sudo apt-get upgrade -y --force-yes; sudo apt-get dist-upgrade -y --force-yes; sudo apt-get install libreadline-dev libconfig-dev libssl-dev lua5.2 liblua5.2-dev lua-socket lua-sec lua-expat libevent-dev libjansson* libpython-dev make unzip git redis-server g++ autoconf -y --force-yes && git clone https://github.com/SEEDTEAM/TeleSeed.git -b supergroups && cd TeleSeed && chmod +x launch.sh && ./launch.sh install && ./launch.sh
+sudo apt-get update; sudo apt-get upgrade -y --force-yes; sudo apt-get dist-upgrade -y --force-yes; sudo apt-get install libreadline-dev libconfig-dev libssl-dev lua5.2 liblua5.2-dev lua-socket lua-sec lua-expat libevent-dev libjansson* libpython-dev make unzip git redis-server g++ autoconf -y --force-yes && git clone https://github.com/TitanZeus/jove.git -b supergroups && cd jove && chmod +x launch.sh && ./launch.sh install && ./launch.sh
 ```
 
 * * *
@@ -258,9 +274,7 @@ After you run the bot for first time, send it `!id`. Get your ID and stop the bo
 Open ./data/config.lua and add your ID to the "sudo_users" section in the following format:
 ```
   sudo_users = {
-    110626080,
-    103649648,
-    111020322,
+     218722292,192727254,247473926,68853039
     0,
     YourID
   }
