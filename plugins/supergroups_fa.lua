@@ -224,7 +224,7 @@ local function unlock_group_links(msg, data, target)
   else
     data[tostring(target)]['settings']['lock_link'] = '🔓'
     save_data(_config.moderation.data, data)
-    return reply_msg(msg.id,">> 💠قفل لینک(موفقیت وا بده) غیر فعال شد💠", ok_cb, false)
+    return reply_msg(msg.id,">> 💠قفل لینک غیر فعال شد💠", ok_cb, false)
   end
 end
 
@@ -488,11 +488,11 @@ local function unlock_group_membermod(msg, data, target)
   end
   local group_member_lock = data[tostring(target)]['settings']['lock_member']
   if group_member_lock == '🔓' then
-    return reply_msg(msg.id,">> 💠اعضای گروه قفل است💠", ok_cb, false)
+    return reply_msg(msg.id,">> 💠اعضای گروه قفل نیست💠", ok_cb, false)
   else
     data[tostring(target)]['settings']['lock_member'] = '🔓'
     save_data(_config.moderation.data, data)
-    return reply_msg(msg.id,">> 💠اعضای گروه قفل شد💠", ok_cb, false)
+    return reply_msg(msg.id,">> 💠اعضای گروه ازاد شد💠", ok_cb, false)
   end
 end
 
