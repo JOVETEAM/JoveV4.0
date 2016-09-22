@@ -2100,7 +2100,7 @@ local function run(msg, matches)
 
 		if matches[1] == 'ممنوعیت' and is_momod(msg) then
 			local chat_id = msg.to.id
-			if matches[2] == 'audio' then
+			if matches[2] == 'صدا' then
 			local msg_type = 'Audio'
 				if not is_muted(chat_id, msg_type..': yes') then
 					savelog(msg.to.id, name_log.." ["..msg.from.id.."] set SuperGroup to: mute "..msg_type)
