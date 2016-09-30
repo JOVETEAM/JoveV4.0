@@ -6,8 +6,7 @@
 |    |  |   |  |   |  |  /  _____  \ |  | \  \|  | |  /  /_  | |____  |  |___|  |   ___/  /    |
 |    |__|   |__|   |__| /__/     \__\|__|  \_____| | |_____| |______|  \_______/  /______/     |
 |--------------------------------------------------|-------------------------------------------|
-| This Project Powered by : Pouya Poorrahman CopyRight 2016 Jove Version 3.1 Anti Spam Cli Bot |
-|                             The Other Code Writer: Erfan Kiya                                |
+| This Project Powered by : Pouya Poorrahman CopyRight 2016 Jove Version 4.0 Anti Spam Cli Bot |
 |----------------------------------------------------------------------------------------------|
 ]]
 antiarabic = {}-- An empty table for solving multiple kicking problem
@@ -31,9 +30,9 @@ local function run(msg, matches)
 		local username = msg.from.username
 		local name = msg.from.first_name
 		if username and is_super_group(msg) then
-			send_large_msg(receiver , "💠Arabic/Persian is not allowed here💠\n💠 @"..username.."["..msg.from.id.."]\n💠Status: User kicked/msg deleted💠")
+			send_large_msg(receiver , "💠فارسی اینجا مجاز نیست💠\n💠 @"..username.."["..msg.from.id.."]\n💠وضعیت:کاربر حذف شد💠")
 		else
-			send_large_msg(receiver , "💠Arabic/Persian is not allowed here💠\n💠Name: "..name.."["..msg.from.id.."]\n💠Status: User kicked/msg deleted💠")
+			send_large_msg(receiver , "💠فارسی اینجا مجاز نیست💠\n💠نام: "..name.."["..msg.from.id.."]\n💠وضعیت:کاربر حذف شد💠")
 		end
 		local name = user_print_name(msg.from)
 		savelog(msg.to.id, name.." ["..msg.from.id.."] kicked (arabic was locked) ")
