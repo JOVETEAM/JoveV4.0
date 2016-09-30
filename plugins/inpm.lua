@@ -6,8 +6,7 @@
 |    |  |   |  |   |  |  /  _____  \ |  | \  \|  | |  /  /_  | |____  |  |___|  |   ___/  /    |
 |    |__|   |__|   |__| /__/     \__\|__|  \_____| | |_____| |______|  \_______/  /______/     |
 |--------------------------------------------------|-------------------------------------------|
-| This Project Powered by : Pouya Poorrahman CopyRight 2016 Jove Version 3.1 Anti Spam Cli Bot |
-|                             The Other Code Writer: Erfan Kiya                                |
+| This Project Powered by : Pouya Poorrahman CopyRight 2016 Jove Version 4.0 Anti Spam Cli Bot |
 |----------------------------------------------------------------------------------------------|
 ]]
 local function pre_process(msg)
@@ -34,7 +33,7 @@ local service = msg.service
 		else
 			from_username = "@[none]"
 		end
-		text = "🔨User From Info:\n\n🔅ID: "..from_id.."\n💠First: "..from_first_name.."\n💠Last: "..from_last_name.."\n🔹Username: "..from_username
+		text = "*User From Info:\n\nID > "..from_id.."\nFirst > "..from_first_name.."\nLast> "..from_last_name.."\nUsername > "..from_username
 		send_large_msg(user, text)
 	end
 	return msg
@@ -98,7 +97,7 @@ local service = msg.service
 local name_log = user_print_name(msg.from)
 if to == 'user' or service or is_admin1(msg) and to == "chat" or to == "channel" then
 	if is_gbanned(msg.from.id) then
-        return 'You are globally banned.'
+        return '*You are globally banned.\n For More Informaion Send msg to @JoveTGBot'
 	end
     if matches[1] == 'join' then
 	local data = load_data(_config.moderation.data)
@@ -220,7 +219,7 @@ if to == 'user' or service or is_admin1(msg) and to == "chat" or to == "channel"
 
 	if matches[1] == 'help' and msg.to.type == 'user' or matches[1] == 'pmhelp' and is_admin1(msg) and msg.to.type ~= 'user' then
       	savelog(msg.to.id, name_log.." ["..msg.from.id.."] used pm help")
-		text = "🔹Welcome to Jove!🔹\n\n🔹To get a list of Jove groups use /chats or /chatlist for a document list of chats🔹\n\n🔹To get a new Jove group, contact a support group:🔹\n\nFor English support, use: /join English support\n\nFor Persian support, use: /join Persian support\n\nFor more information, check out our channels:\n\n@JoveCH [Persian-English]\n\nThanks for using @JoveTG!"
+		text = "Welcome to Jove!\n\n>To get a new Jove group, Use /support command to get a support Link! Or Contact a Support Team With @JoveTGBot\n\nFor more information, check out our channel:\n[@JoveCH] \n\nUse #superhelp command to show bot commands!!\n\n#Thanks_for_using @JoveTG!"
      	return text
     end
 
@@ -257,20 +256,12 @@ return {
     patterns = {
 	"^[#!/](help)$",
 	"^[#!/](pmhelp)$",
-	"^[#!/](superhelp)$",
-    "^[#!/](chats)$",
-    "^[#!/](chatlist)$",
-    "^[#!/](join) (%d+)$",
 	"^[#!/](join) (.*) (support)$",
     "^[#!/](kickme) (.*)$",
-    	"^(help)$",
-	"^(pmhelp)$",
-	"^(superhelp)$",
-    "^(chats)$",
-    "^(chatlist)$",
-    "^(join) (%d+)$",
-	"^(join) (.*) (support)$",
-    "^(kickme) (.*)$",
+	"^([Hh]elp)$",
+	"^([Pp]mhelp)$",
+	"^([Jj]oin) (.*) (support)$",
+    "^([Kk]ickme) (.*)$",
     "^!!tgservice (chat_add_user)$",
     },
     run = run,
