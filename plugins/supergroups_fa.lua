@@ -6,8 +6,7 @@
 |    |  |   |  |   |  |  /  _____  \ |  | \  \|  | |  /  /_  | |____  |  |___|  |   ___/  /    |
 |    |__|   |__|   |__| /__/     \__\|__|  \_____| | |_____| |______|  \_______/  /______/     |
 |--------------------------------------------------|-------------------------------------------|
-| This Project Powered by : Pouya Poorrahman CopyRight 2016 Jove Version 3.1 Anti Spam Cli Bot |
-|                             The Other Code Writer: Erfan Kiya                                |
+| This Project Powered by : Pouya Poorrahman CopyRight 2016 Jove Version 4.0 Anti Spam Cli Bot |
 |----------------------------------------------------------------------------------------------|
 ]]
 --Begin supergrpup.lua
@@ -57,7 +56,7 @@ local function check_member_super(cb_extra, success, result)
       end
       data[tostring(groups)][tostring(msg.to.id)] = msg.to.id
       save_data(_config.moderation.data, data)
-	  local text = '💠سوپر گروه اضافه شد!(3.1)💠'
+	  local text = '💠سوپر گروه اضافه شد!(4.0)💠'
       return reply_msg(msg.id, text, ok_cb, false)
     end
   end
@@ -81,7 +80,7 @@ local function check_member_superrem(cb_extra, success, result)
       end
       data[tostring(groups)][tostring(msg.to.id)] = nil
       save_data(_config.moderation.data, data)
-	  local text = '💠سوپر گروه حذف شد!(3.1)💠'
+	  local text = '💠سوپر گروه حذف شد!(4.0)💠'
       return reply_msg(msg.id, text, ok_cb, false)
     end
   end
@@ -790,7 +789,7 @@ end
 		end
 	end
   local settings = data[tostring(target)]['settings']
-  local text = "💠تنظیمات سوپر گروه💠:\n➖➖➖➖➖➖➖➖\n🔸$اسم ربات >> ژوپیتر 3.1 \n🔹$قفل لینک >> "..settings.lock_link.."\n🔸$قفل وب لینک >> "..settings.lock_webpage.."\n🔹$قفل تگ >> "..settings.lock_tag.."\n🔸$قفل شکلک >> "..settings.lock_emoji.."\n🔹$قفل انگلیسی >> "..settings.lock_eng.."\n🔸$قفل کلمات زشت >> "..settings.lock_badw.."\n🔹$قفل حساسیت >> "..settings.flood.."\n🔸$مقدار حساسیت >> "..NUM_MSG_MAX.."\n🔹$قفل اسپم >> "..settings.lock_spam.."\n🔸$قفل مخاطب >> "..settings.lock_contacts.."\n🔹$قفل عربی/فارسی >> "..settings.lock_arabic.."\n🔸$قفل اعضا >> "..settings.lock_member.."\n🔹$قفل راستچین >> "..settings.lock_rtl.."\n🔸$قفل فروارد >> "..settings.lock_fwd.."\n🔹$قفل اعلان >> "..settings.lock_tgservice.."\n🔸$قفل استیکر >> "..settings.lock_sticker.."\n🔹$عمومی >> "..settings.public.."\n🔸$قفل سختگیرانه >> "..settings.strict
+  local text = "💠تنظیمات سوپر گروه💠:\n➖➖➖➖➖➖➖➖\n🔸$اسم ربات >> #ژوپیتر 4.0 \n🔹$قفل لینک >> #"..settings.lock_link.."\n🔸$قفل وب لینک >> #"..settings.lock_webpage.."\n🔹$قفل تگ >> #"..settings.lock_tag.."\n🔸$قفل شکلک >> #"..settings.lock_emoji.."\n🔹$قفل انگلیسی >> #"..settings.lock_eng.."\n🔸$قفل کلمات زشت >> #"..settings.lock_badw.."\n🔹$قفل حساسیت >> #"..settings.flood.."\n🔸$مقدار حساسیت >> #"..NUM_MSG_MAX.."\n🔹$قفل اسپم >> #"..settings.lock_spam.."\n🔸$قفل مخاطب >> #"..settings.lock_contacts.."\n🔹$قفل عربی/فارسی >> #"..settings.lock_arabic.."\n🔸$قفل اعضا >> #"..settings.lock_member.."\n🔹$قفل راستچین >> #"..settings.lock_rtl.."\n🔸$قفل فروارد >> #"..settings.lock_fwd.."\n🔹$قفل اعلان >> #"..settings.lock_tgservice.."\n🔸$قفل استیکر >> #"..settings.lock_sticker.."\n🔹$عمومی >> #"..settings.public.."\n🔸$قفل سختگیرانه >> #"..settings.strict
   reply_msg(msg.id, text, ok_cb, false)
 end
 
@@ -2438,4 +2437,4 @@ return {
   run = run,
   pre_process = pre_process
 }
---Persian Supergroup Debuged..Translate:Pouya Poorrahman-Erfan Kiya
+--Persian Supergroup Debuged..Translate:Pouya Poorrahman
