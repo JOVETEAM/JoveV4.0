@@ -1,10 +1,10 @@
-# [Jove V3.1](https://telegram.me/JoveTG)
+# [Jove V4.0](https://telegram.me/JoveTG)
 
 | Bot Name | Description | Powered By | Team name |
 |:--------|:------------|:------------|:------------|
-| Jove | Cli Anti Spam bot version 3.1 | Pouya Poorrahman | Titan Zeus |
+| Jove | Cli Anti Spam bot version 4.0 | Pouya Poorrahman | Titan Zeus |
 
-[![https://gitter.im/TitanZeus/Jove](https://badges.gitter.im/TitanZeus/Jove.svg)](https://gitter.im/TitanZeus/Jove?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![https://gitter.im/PouyaPoorrahman/Jove](https://badges.gitter.im/PouyaPoorrahman/Jove.svg)](https://gitter.im/PouyaPoorrahman/Jove?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 **An advanced and powerful administration bot based on [yagop/telegram-bot](https://github.com/yagop/telegram-bot) licensed under the [GNU Affero General Public License](https://github.com/SEEDTEAM/TeleSeed/blob/master/LICENSE)**.
 # Features
@@ -254,7 +254,7 @@ sudo apt-get install libreadline-dev libconfig-dev libssl-dev lua5.2 liblua5.2-d
 
 # Let's install the bot.
 cd $HOME
-git clone https://github.com/TitanZeus/jove.git -b supergroups
+git clone https://github.com/PouyaPoorrahman/jove.git -b supergroups
 cd jove
 chmod +x launch.sh
 ./launch.sh install
@@ -264,7 +264,7 @@ chmod +x launch.sh
 To install everything in one command (useful for VPS deployment) on Debian-based distros, use:
 ```sh
 #https://github.com/yagop/telegram-bot/wiki/Installation
-sudo apt-get update; sudo apt-get upgrade -y --force-yes; sudo apt-get dist-upgrade -y --force-yes; sudo apt-get install libreadline-dev libconfig-dev libssl-dev lua5.2 liblua5.2-dev lua-socket lua-sec lua-expat libevent-dev libjansson* libpython-dev make unzip git redis-server g++ autoconf -y --force-yes && git clone https://github.com/TitanZeus/jove.git -b supergroups && cd jove && chmod +x launch.sh && ./launch.sh install && ./launch.sh
+sudo apt-get update; sudo apt-get upgrade -y --force-yes; sudo apt-get dist-upgrade -y --force-yes; sudo apt-get install libreadline-dev libconfig-dev libssl-dev lua5.2 liblua5.2-dev lua-socket lua-sec lua-expat libevent-dev libjansson* libpython-dev make unzip git redis-server g++ autoconf -y --force-yes && git clone https://github.com/PouyaPoorrahman/jove.git -b supergroups && cd jove && chmod +x launch.sh && ./launch.sh install && ./launch.sh
 ```
 
 * * *
@@ -323,13 +323,15 @@ The Manager Of Team: [Pouya Poorrahman](https://telegram.me/vVv_ERPO_vVv)
 
 The Assistant Of Team: [Erfan Kiya](https://telegram.me/vWv_ERPO_vWv)
 
-The Manager: [Mostafa YarAli](https://telegram.me/vMv_ERPO_vMv)
+The Manager: [Mostafa Ali Yari](https://telegram.me/vMv_ERPO_vMv)
 
-The Manager: [Mohamad Pahlavan](https://telegram.me/vXv_ERPO_vXv)
+The Manager: [Mohamad Pahlavan](https://telegram.me/M_18_M_19)
+
+The Manager: [Omid Ghiyasvand](https://telegram.me/vOv_ERPO_vOv)
+
+The Support: [Alireaza](https://telegram.me/vAv_ERPO_vAv)
 
 The Queen: [Mahsa Nasiri](https://telegram.me/vQv_ErPo_vQv)
-
-The Admin: [Omid](https://telegram.me/Omid0263)
 
 ### Our Telegram channels:
 
