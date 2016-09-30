@@ -6,8 +6,7 @@
 |    |  |   |  |   |  |  /  _____  \ |  | \  \|  | |  /  /_  | |____  |  |___|  |   ___/  /    |
 |    |__|   |__|   |__| /__/     \__\|__|  \_____| | |_____| |______|  \_______/  /______/     |
 |--------------------------------------------------|-------------------------------------------|
-| This Project Powered by : Pouya Poorrahman CopyRight 2016 Jove Version 3.1 Anti Spam Cli Bot |
-|                             The Other Code Writer: Erfan Kiya                                |
+| This Project Powered by : Pouya Poorrahman CopyRight 2016 Jove Version 4.0 Anti Spam Cli Bot |
 |----------------------------------------------------------------------------------------------|
 ]]
 local function history(extra, suc, result)
@@ -21,7 +20,7 @@ local function history(extra, suc, result)
   end
 end
 local function run(msg, matches)
-  if matches[1] == 'clean' and is_owner(msg) then
+  if matches[1] == 'rmsg' and is_owner(msg) then
     if msg.to.type == 'channel' then
       if tonumber(matches[2]) > 10000 or tonumber(matches[2]) < 1 then
         return "Choose a number up of 1"
@@ -37,7 +36,7 @@ end
 
 return {
     patterns = {
-        '^(clean) (%d*)$'
+        '^(rmsg) (%d*)$'
     },
     run = run
 }
