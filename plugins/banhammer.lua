@@ -6,8 +6,7 @@
 |    |  |   |  |   |  |  /  _____  \ |  | \  \|  | |  /  /_  | |____  |  |___|  |   ___/  /    |
 |    |__|   |__|   |__| /__/     \__\|__|  \_____| | |_____| |______|  \_______/  /______/     |
 |--------------------------------------------------|-------------------------------------------|
-| This Project Powered by : Pouya Poorrahman CopyRight 2016 Jove Version 3.1 Anti Spam Cli Bot |
-|                             The Other Code Writer: Erfan Kiya                                |
+| This Project Powered by : Pouya Poorrahman CopyRight 2016 Jove Version 4.0 Anti Spam Cli Bot |
 |----------------------------------------------------------------------------------------------|
 ]]
 local function pre_process(msg)
@@ -85,7 +84,7 @@ local function pre_process(msg)
     local chat_id = msg.to.id
     local banned = is_banned(user_id, chat_id)
     if banned or is_gbanned(user_id) then -- Check it with redis
-      print('💠Banned user talking!💠')
+      print('Banned user talking!')
       local print_name = user_print_name(msg.from):gsub("‮", "")
 	  local name = print_name:gsub("_", "")
       savelog(msg.to.id, name.." ["..msg.from.id.."] banned user is talking !")-- Save to logs
@@ -94,84 +93,6 @@ local function pre_process(msg)
     end
   end
   return msg
-end
---[[local function banall_by_reply(extra, success, result)
-if result.to.type == 'channel' then
-    local msg = result
-  local receiver = get_receiver(msg)
-    local channel = 'channel#id'..result.to.id
-    if is_admin2(result.from.id) then -- Ignore admins
-      return 
-    end
-     if result.from.username then
-    local de = "[ @"..result.from.username
-    banall_user("user#id"..result.from.id,ok_cb,false)
-    chat_del_user(channel, 'user#id'..result.from.id, ok_cb, false)
-    send_large_msg(channel, "User "..de.." ] , ["..result.from.id.."] globaly banned")
-  else 
-    if not result.from.username then
-    local de = user_print_name(result.from)
-    banall_user("user#id"..result.from.id,ok_cb,false)
-    chat_del_user(channel, 'user#id'..result.from.id, ok_cb, false)
-    send_large_msg(channel, "User "..de.." [ "..result.from.id.." ] globaly banned")
-  end
-end
-end
-end]]
-
-local function banall_by_reply(extra, success, result)
-	if result.to.peer_type == 'chat' or result.to.peer_type == 'channel' then
-		local chat = 'chat#id'..result.to.peer_id
-		local channel = 'channel#id'..result.to.peer_id
-	if tonumber(result.from.peer_id) == tonumber(our_id) then -- Ignore bot
-			return
-	end
-	if is_admin2(result.from.peer_id) then -- Ignore admins
-		return
-	end
-		banall_user(result.from.peer_id)
-		send_large_msg(chat, "💠User "..result.from.peer_id.." Golobaly Banned In Jove💠")
-		send_large_msg(channel, "💠User "..result.from.peer_id.." Golobaly Banned In Jove💠")
-	else
-		return
-	end
-end
-
-local function unbanall_by_reply(extra, success, result)
-	if result.to.peer_type == 'chat' or result.to.peer_type == 'channel' then
-		local chat = 'chat#id'..result.to.peer_id
-		local channel = 'channel#id'..result.to.peer_id
-	if tonumber(result.from.peer_id) == tonumber(our_id) then -- Ignore bot
-			return
-	end
-	if is_admin2(result.from.peer_id) then -- Ignore admins
-		return
-	end
-		unbanall_user(result.from.peer_id)
-		send_large_msg(chat, "💠User "..result.from.peer_id.." Golobaly un-Banned In Jove💠")
-		send_large_msg(channel, "💠User "..result.from.peer_id.." Golobaly un-Banned In Jove💠")
-	else
-		return
-	end
-end
-
-local function unban_by_reply(extra, success, result)
-	if result.to.peer_type == 'chat' or result.to.peer_type == 'channel' then
-		local chat = 'chat#id'..result.to.peer_id
-		local channel = 'channel#id'..result.to.peer_id
-	if tonumber(result.from.peer_id) == tonumber(our_id) then -- Ignore bot
-			return
-	end
-	if is_admin2(result.from.peer_id) then -- Ignore admins
-		return
-	end
-		send_large_msg(chat, "💠User "..result.from.peer_id.." un-Banned💠")
-		send_large_msg(channel, "💠User "..result.from.peer_id.." un-Banned💠")
-		local hash =  'banned:'..result.to.peer_id
-		redis:srem(hash, result.from.peer_id)
-	else
-		return
-	end
 end
 
 local function kick_ban_res(extra, success, result)
@@ -183,7 +104,7 @@ local function kick_ban_res(extra, success, result)
 		receiver = 'channel#id'..chat_id
 	  end
 	  if success == 0 then
-		return send_large_msg(receiver, "💠Cannot find user by that username!💠")
+		return send_large_msg(receiver, "*Error 404\nCannot find user by that username!")
 	  end
       local member_id = result.peer_id
       local user_id = member_id
@@ -192,31 +113,31 @@ local function kick_ban_res(extra, success, result)
       local get_cmd = extra.get_cmd
        if get_cmd == "kick" then
          if member_id == from_id then
-            send_large_msg(receiver, "💠You can't kick yourself💠")
+            send_large_msg(receiver, "!!")
 			return
          end
          if is_momod2(member_id, chat_id) and not is_admin2(sender) then
-            send_large_msg(receiver, "💠You can't kick mods/owner/admins💠")
+            send_large_msg(receiver, "You can't kick Mods|Owner|Admins")
 			return
          end
 		 kick_user(member_id, chat_id)
       elseif get_cmd == 'ban' then
         if is_momod2(member_id, chat_id) and not is_admin2(sender) then
-			send_large_msg(receiver, "💠You can't ban mods/owner/admins💠")
+			send_large_msg(receiver, "!!")
 			return
         end
-        send_large_msg(receiver, '💠User @'..member..' ['..member_id..'] banned💠')
+        send_large_msg(receiver, 'Done\n'..user_id..' Banned')
 		ban_user(member_id, chat_id)
       elseif get_cmd == 'unban' then
-        send_large_msg(receiver, '💠User @'..member..' ['..member_id..'] unbanned💠')
+        send_large_msg(receiver, 'Done\n'..user_id..' Unbanned')
         local hash =  'banned:'..chat_id
         redis:srem(hash, member_id)
-        return 'User '..user_id..' unbanned'
+        return 'Done\n User Unbanned'
       elseif get_cmd == 'banall' then
-        send_large_msg(receiver, '💠User @'..member..' ['..member_id..'] globally banned in jove💠')
+        send_large_msg(receiver, '> ['..user_id..' ] Banned for all @JoveTG Groups/SuperGroups! (Globally banned)')
 		banall_user(member_id)
       elseif get_cmd == 'unbanall' then
-        send_large_msg(receiver, '💠User @'..member..' ['..member_id..'] globally unbanned inf jove💠')
+        send_large_msg(receiver, '> ['..user_id..' ] Unbanned for all @JoveTG Groups/SuperGroups! (Unglobally banned)')
 	    unbanall_user(member_id)
     end
 end
@@ -225,7 +146,7 @@ local function run(msg, matches)
 local support_id = msg.from.id
  if matches[1]:lower() == 'id' and msg.to.type == "chat" or msg.to.type == "user" then
     if msg.to.type == "user" then
-      return "Your id : "..msg.from.id
+      return reply_msg(msg.id, "Bot ID > |"..msg.to.id.."|\nYour ID > |"..msg.from.id.."| ", ok_cb, false)	
     end
     if type(msg.reply_id) ~= "nil" then
       local print_name = user_print_name(msg.from):gsub("‮", "")
@@ -235,9 +156,8 @@ local support_id = msg.from.id
     elseif matches[1]:lower() == 'id' then
       local name = user_print_name(msg.from)
       savelog(msg.to.id, name.." ["..msg.from.id.."] used /id ")
-local text = "_🇮🇷 Group ID : _*"..msg.to.id.."*\n_🇮🇷 Group Name : _*"..msg.to.title.."*"
-send_api_msg(msg, get_receiver_api(msg), text, true, 'md')
-end
+      return "> Group ID: "..msg.to.id.."\n> Group Name: "..msg.to.title.."\n> First Name: "..(msg.from.first_name or '').."\n> Last Name: "..(msg.from.last_name or '').."\n> Your ID: "..msg.from.id.."\n> Username: @"..(msg.from.username or '').."\n> Phone Number: +"..(msg.from.phone or '').."\n> Your Link: Telegram.Me/"..(msg.from.username or '').."\n> Group Type: #Normal"	
+    end
   end
   if matches[1]:lower() == 'kickme' and msg.to.type == "chat" then-- /kickme
   local receiver = get_receiver(msg)
@@ -260,7 +180,6 @@ end
     end
     return ban_list(chat_id)
   end
-
   if matches[1]:lower() == 'ban' then-- /ban
     if type(msg.reply_id)~="nil" and is_momod(msg) then
       if is_admin1(msg) then
@@ -275,17 +194,17 @@ end
          	return
         end
         if not is_admin1(msg) and is_momod2(matches[2], msg.to.id) then
-          	return "you can't ban mods/owner/admins"
+          	return "You can't ban Mods|Owner|Admins"
         end
         if tonumber(matches[2]) == tonumber(msg.from.id) then
-          	return "You can't ban your self !"
+          	return "!!"
         end
         local print_name = user_print_name(msg.from):gsub("‮", "")
 	    local name = print_name:gsub("_", "")
 		local receiver = get_receiver(msg)
         savelog(msg.to.id, name.." ["..msg.from.id.."] baned user ".. matches[2])
         ban_user(matches[2], msg.to.id)
-		send_large_msg(receiver, '💠User ['..matches[2]..'] banned💠')
+		send_large_msg(receiver, 'Done\n'..user_id..' Banned')
       else
 		local cbres_extra = {
 		chat_id = msg.to.id,
@@ -299,7 +218,7 @@ end
   end
 
 
-  --[[if matches[1]:lower() == 'unban' then -- /unban
+  if matches[1]:lower() == 'unban' then -- /unban
     if type(msg.reply_id)~="nil" and is_momod(msg) then
       local msgr = get_message(msg.reply_id,unban_by_reply, false)
     end
@@ -313,7 +232,7 @@ end
         	local print_name = user_print_name(msg.from):gsub("‮", "")
 			local name = print_name:gsub("_", "")
         	savelog(msg.to.id, name.." ["..msg.from.id.."] unbaned user ".. matches[2])
-        	return 'User '..user_id..' unbanned'
+        	return 'Done\n'..user_id..' Unbanned'
       else
 		local cbres_extra = {
 			chat_id = msg.to.id,
@@ -324,7 +243,7 @@ end
 		local username = string.gsub(matches[2], '@', '')
 		resolve_username(username, kick_ban_res, cbres_extra)
 	end
- end]]
+ end
 
 if matches[1]:lower() == 'kick' then
     if type(msg.reply_id)~="nil" and is_momod(msg) then
@@ -338,10 +257,10 @@ if matches[1]:lower() == 'kick' then
 			return
 		end
 		if not is_admin1(msg) and is_momod2(matches[2], msg.to.id) then
-			return "💠you can't kick mods/owner/admins💠"
+			return "You can't kick Mods|Admins|Owner"
 		end
 		if tonumber(matches[2]) == tonumber(msg.from.id) then
-			return "💠You can't kick your self !💠"
+			return "!!"
 		end
     local user_id = matches[2]
     local chat_id = msg.to.id
@@ -361,104 +280,55 @@ if matches[1]:lower() == 'kick' then
 	end
 end
 
-if matches[1]:lower() == 'unban' then-- /ban
-    if type(msg.reply_id)~="nil" and is_momod(msg) then
-        msgr = get_message(msg.reply_id,unban_by_reply, false)
-      end
-      local user_id = matches[2]
-      local chat_id = msg.to.id
-    elseif string.match(matches[2], '^%d+$') then
-        local print_name = user_print_name(msg.from):gsub("‮", "")
-	    local name = print_name:gsub("_", "")
-		local receiver = get_receiver(msg)
-        savelog(msg.to.id, name.." ["..msg.from.id.."] unbaned user ".. matches[2])
-        unban_user(matches[2], msg.to.id)
-		send_large_msg(receiver, '💠User ['..matches[2]..'] unbanned💠')
-      else
-		local cbres_extra = {
-		chat_id = msg.to.id,
-		get_cmd = 'unban',
-		from_id = msg.from.id,
-		chat_type = msg.to.type
-		}
-		local username = string.gsub(matches[2], '@', '')
-		resolve_username(username, kick_ban_res, cbres_extra)
-    end
-
 
 	if not is_admin1(msg) and not is_support(support_id) then
 		return
 	end
-	if matches[1]:lower() == 'banall' then-- /ban
-    if type(msg.reply_id)~="nil" and is_momod(msg) then
-      if is_admin1(msg) then
-		msgr = get_message(msg.reply_id,banall_by_reply, false)
-      end
-      local user_id = matches[2]
-      local chat_id = msg.to.id
-    elseif string.match(matches[2], '^%d+$') then
+
+  if matches[1]:lower() == 'banall' and is_admin1(msg) then -- Global ban
+    if type(msg.reply_id) ~="nil" and is_admin1(msg) then
+      banall = get_message(msg.reply_id,banall_by_reply, false)
+    end
+    local user_id = matches[2]
+    local chat_id = msg.to.id
+      local targetuser = matches[2]
+      if string.match(targetuser, '^%d+$') then
         if tonumber(matches[2]) == tonumber(our_id) then
-         	return
+         	return false
         end
-        if not is_admin1(msg) and is_momod2(matches[2], msg.to.id) then
-          	return "💠you can't ban mods/owner/admins💠"
-        end
-        if tonumber(matches[2]) == tonumber(msg.from.id) then
-          	return "💠You can't ban your self !💠"
-        end
-        local print_name = user_print_name(msg.from):gsub("‮", "")
-	    local name = print_name:gsub("_", "")
-		local receiver = get_receiver(msg)
-        savelog(msg.to.id, name.." ["..msg.from.id.."] banedall user ".. matches[2])
-        banall_user(matches[2])
-		send_large_msg(receiver, '💠User ['..matches[2]..'] bannedalled in jove💠')
-      else
-		local cbres_extra = {
+        	banall_user(targetuser)
+       		return '> ['..user_id..' ] Banned for all @JoveTG Groups/SuperGroups! (Globally banned)'
+     else
+	local cbres_extra = {
 		chat_id = msg.to.id,
 		get_cmd = 'banall',
 		from_id = msg.from.id,
 		chat_type = msg.to.type
-		}
+	}
 		local username = string.gsub(matches[2], '@', '')
 		resolve_username(username, kick_ban_res, cbres_extra)
-    end
-  end
-  
-   if matches[1]:lower() == 'unbanall' then-- /ban
-    if type(msg.reply_id)~="nil" and is_momod(msg) then
-      if is_admin1(msg) then
-		msgr = get_message(msg.reply_id,unbanall_by_reply, false)
       end
-      local user_id = matches[2]
-      local chat_id = msg.to.id
-    elseif string.match(matches[2], '^%d+$') then
+  end
+  if matches[1]:lower() == 'unbanall' then -- Global unban
+    local user_id = matches[2]
+    local chat_id = msg.to.id
+      if string.match(matches[2], '^%d+$') then
         if tonumber(matches[2]) == tonumber(our_id) then
-         	return
+          	return false
         end
-        if not is_admin1(msg) and is_momod2(matches[2], msg.to.id) then
-          	return "💠you can't ban mods/owner/admins💠"
-        end
-        if tonumber(matches[2]) == tonumber(msg.from.id) then
-          	return "💠You can't ban your self !💠"
-        end
-        local print_name = user_print_name(msg.from):gsub("‮", "")
-	    local name = print_name:gsub("_", "")
-		local receiver = get_receiver(msg)
-        savelog(msg.to.id, name.." ["..msg.from.id.."] unbanedall user ".. matches[2])
-        unbanall_user(matches[2])
-		send_large_msg(receiver, '💠User ['..matches[2]..'] unbannedalled in jove💠')
-      else
+       		unbanall_user(user_id)
+        	return '> ['..user_id..' ] Unbanned for all @JoveTG Groups/SuperGroups! (Unglobally banned)'
+    else
 		local cbres_extra = {
-		chat_id = msg.to.id,
-		get_cmd = 'unbanall',
-		from_id = msg.from.id,
-		chat_type = msg.to.type
+			chat_id = msg.to.id,
+			get_cmd = 'unbanall',
+			from_id = msg.from.id,
+			chat_type = msg.to.type
 		}
 		local username = string.gsub(matches[2], '@', '')
 		resolve_username(username, kick_ban_res, cbres_extra)
-    end
+      end
   end
-
   if matches[1]:lower() == "gbanlist" then -- Global ban list
     return banall_list()
   end
@@ -468,7 +338,6 @@ return {
   patterns = {
     "^[#!/]([Bb]anall) (.*)$",
     "^[#!/]([Bb]anall)$",
-	"^[#!/]([Uu]ubanall)$",
     "^[#!/]([Bb]anlist) (.*)$",
     "^[#!/]([Bb]anlist)$",
     "^[#!/]([Gg]banlist)$",
@@ -482,9 +351,8 @@ return {
     "^[#!/]([Kk]ick) (.*)$",
     "^[#!/]([Uu]nban)$",
     "^[#!/]([Ii]d)$",
-        "^([Bb]anall) (.*)$",
+	"^([Bb]anall) (.*)$",
     "^([Bb]anall)$",
-	"^([Uu]ubanall)$",
     "^([Bb]anlist) (.*)$",
     "^([Bb]anlist)$",
     "^([Gg]banlist)$",
