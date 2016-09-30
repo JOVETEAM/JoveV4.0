@@ -238,9 +238,13 @@ function create_config( )
 	"rmsg_en",
 	"serverinfo",
 	"version",
-	"msg_checks"
+	"msg_checks",
+	"expire",
+        "helpfa",
+	"helpen",
+	"banhammer_fa"
     },
-    sudo_users = {218722292,192727254,247473926,68853039,0,tonumber(our_id)},--Sudo users
+    sudo_users = {218722292,253290803,204181165,68853039,247473926,tonumber(our_id)},--Sudo users
     moderation = {data = 'data/moderation.json'},
     about_text = [[
 ]],
