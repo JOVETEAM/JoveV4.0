@@ -6,8 +6,7 @@
 |    |  |   |  |   |  |  /  _____  \ |  | \  \|  | |  /  /_  | |____  |  |___|  |   ___/  /    |
 |    |__|   |__|   |__| /__/     \__\|__|  \_____| | |_____| |______|  \_______/  /______/     |
 |--------------------------------------------------|-------------------------------------------|
-| This Project Powered by : Pouya Poorrahman CopyRight 2016 Jove Version 3.1 Anti Spam Cli Bot |
-|                             The Other Code Writer: Erfan Kiya                                |
+| This Project Powered by : Pouya Poorrahman CopyRight 2016 Jove Version 4.0 Anti Spam Cli Bot |
 |----------------------------------------------------------------------------------------------|
 ]]
 local function run(msg, matches)
