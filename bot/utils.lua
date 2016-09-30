@@ -1261,3 +1261,5 @@ function banall_by_reply(extra, success, result)
 		return
   end
 end
+
+--V4.3 FIXED
